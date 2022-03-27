@@ -26,7 +26,6 @@ namespace RokPrzestepny.Pages
         {
             if(ModelState.IsValid)
             {
-                Osoba.CzyPrzestepny();
                 TempData["Message"] = Osoba.AlertMessage();
 
                 List<Osoba>? Osoby;

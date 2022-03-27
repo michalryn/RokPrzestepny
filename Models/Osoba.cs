@@ -16,7 +16,7 @@ namespace RokPrzestepny.Models
         
         private bool Przestepny;
 
-        public void CzyPrzestepny()
+        private void CzyPrzestepny()
         {
             if (Rok % 4 == 0)
                 Przestepny = true;
@@ -36,6 +36,7 @@ namespace RokPrzestepny.Models
         }
         public string AlertMessage()
         {
+            CzyPrzestepny();
             string message = $"{Imie}: urodził się w {Rok} roku.";
             if (Przestepny)
                 message += " To jest rok przestępny";
