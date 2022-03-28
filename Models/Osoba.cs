@@ -14,11 +14,11 @@ namespace RokPrzestepny.Models
             Range(1899, 2022, ErrorMessage = "Oczekiwana wartość {0} z zakresu {1} i {2}.")]
         public int? Rok { get; set; }
         
-        private bool Przestepny;
+        public bool Przestepny;
 
         private void CzyPrzestepny()
         {
-            if (Rok % 4 == 0)
+            if ((Rok % 4 == 0 && Rok % 100 != 0) || (Rok % 400 == 0))
                 Przestepny = true;
             else
                 Przestepny = false;
@@ -26,7 +26,6 @@ namespace RokPrzestepny.Models
 
         public string Message()
         {
-            CzyPrzestepny();
             string message = "";
             if (Przestepny)
                 message += "rok przestępny";
@@ -42,7 +41,6 @@ namespace RokPrzestepny.Models
                 message += " To jest rok przestępny";
             else
                 message += " To nie jest rok przestępny";
-
             return message;
         }
     }
